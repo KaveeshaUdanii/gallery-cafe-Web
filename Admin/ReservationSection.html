@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Reservation Section</title>
+    <link rel="stylesheet" href="ReservationSection.css">
+</head>
+<body>
+    <header>
+        <!-- Main Navigation Menu -->
+        <nav id="main-nav">
+            <div class="navbar-container">
+                <a class="navbar-brand" href="#">Gallery Café</a>
+                <!-- Menu Toggle Button (Hamburger Icon) -->
+                <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <!-- Navigation Menu Links -->
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="dashboard.php">DASHBOAD</a></li>
+                    <li><a href="FoodSection.html">FOOD SECTION</a></li>
+                    <li><a href="ReservationSection.html">RESERVATION SECTION</a></li>
+                    <li><a href="VehicleSection.html">VEHICLE SECTION</a></li>
+                    <li><a href="logout.php" id="user-icon" aria-label="User Page">
+                        <img src="logout.png" alt="User Icon" class="nav-icon">
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Admin Reservation Section -->
+    <section class="admin-reservation-section">
+        <div class="container">
+            <!-- Manage Tables -->
+            <h2>Manage Tables</h2>
+            <button id="add-table-btn" class="btn btn-primary" onclick="openTableModal()">Add Table</button>
+            <button id="view-tables-btn" class="btn btn-secondary" onclick="viewTables()">View Tables</button><br><br>
+
+            <table id="tables-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>TID</th>
+                        <th>Capacity</th>
+                        <th>Location</th>
+                        <th>Availability</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tables-table-body">
+                    <!-- Table rows will be inserted here dynamically via JavaScript -->
+                </tbody>
+            </table>
+
+            <!-- Table Form Modal -->
+            <div id="table-form-modal" class="modal" style="display:none;">
+                <form id="table-form" method="post" action="ManageTables.php">
+                    <h3 id="form-title">Add Table</h3>
+                    <input type="hidden" id="tid" name="tid">
+                    <label for="capacity">Capacity:</label>
+                    <input type="number" id="capacity" name="capacity" required>
+
+                    <label for="location">Location:</label>
+                    <select id="location" name="location" required>
+                        <option value="Indoor">Indoor</option>
+                        <option value="Outdoor">Outdoor</option>
+                    </select>
+
+                    <label for="availability">Availability:</label>
+                    <select id="availability" name="availability" required>
+                        <option value="1">Available</option>
+                        <option value="0">Not Available</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-secondary" id="close-table-form" onclick="closeTableModal()">Cancel</button>
+                </form>
+            </div>
+
+
+            <!-- Manage Reservations Table -->
+            <h2>Manage Reservations</h2>
+            <button type="submit" id="view-reservations-btn" class="btn btn-secondary">View Reservations</button><br><br>
+            <table id="reservations-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Reservation ID</th>
+                        <th>User ID</th>
+                        <th>Table ID</th>
+                        <th>No. of Persons</th>
+                        <th>Reservation Date</th>
+                        <th>Reservation Time</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="reservations-table-body">
+                    <!-- Dynamic rows for reservations will be loaded here -->
+                </tbody>
+            </table>
+
+
+            <!-- Add/Edit Reservation Form (hidden by default) -->
+            <div id="reservation-form-modal" class="modal">
+                <form id="reservation-form" method="post" action="ReservationSection.php">
+                    <input type="hidden" name="rid" id="rid">
+
+                    <label for="customer-id">Customer ID:</label>
+                    <input type="number" id="customer-id" name="customer-id" required>
+
+                    <label for="table-id">Table ID:</label>
+                    <input type="number" id="table-id" name="table-id" required>
+
+                    <label for="no-of-persons">No. of Persons:</label>
+                    <input type="number" id="no-of-persons" name="no-of-persons" required>
+
+                    <label for="reservation-date">Reservation Date:</label>
+                    <input type="date" id="reservation-date" name="reservation-date" required>
+
+                    <label for="reservation-time">Reservation Time:</label>
+                    <input type="time" id="reservation-time" name="reservation-time" required>
+
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-secondary" id="close-reservation-form">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="ReservationSection.js"></script>
+    <script src="ManageTables.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

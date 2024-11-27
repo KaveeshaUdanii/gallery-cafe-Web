@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery caffe Reservations</title>
+    <link rel="stylesheet" href="Reservations.css">
+</head>
+<body>
+    <header>
+        <!-- Main Navigation Menu -->
+        <nav id="main-nav">
+            <div class="navbar-container">
+                <a class="navbar-brand" href="#">Gallery Café</a>
+                <!-- Menu Toggle Button (Hamburger Icon) -->
+                <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <!-- Navigation Menu Links -->
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Menu.html">Menu</a></li>
+                    <li><a href="Reservations.html">Reservations</a></li>
+                    <li><a href="Promotions.html">Event & Promotions</a></li>
+                    <li><a href="Shop.php">Shop</a></li> <!-- New Shop link -->
+                    <li><a href="Contact.html">Contact Us</a></li>
+                    <li><a href="user.html" id="user-icon" aria-label="User Page">
+                        <img src="icons/user.png" alt="User Icon" class="nav-icon">
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="intro-section">
+        <div class="container">
+            <h1>RESERVATIONS</h1>
+        </div>
+    </section>
+
+
+    <section id="authentic-cuisine">
+        <div class="cuisine-container">
+            <div class="cuisine-image">
+                <img src="images/table.jpeg" alt="Sri Lankan Cuisine">
+            </div>
+            <div class="cuisine-content">
+                <h3 class="cuisine-subheading">It's time to enjoy</h3>
+                <h1 class="cuisine-heading">The Art of Premium Coffee & Gourmet Delights</h1>
+                <hr class="cuisine-divider">
+                <p class="cuisine-description">
+                    We welcome reservations for breakfast, lunch, and dinner. To reserve your spot, kindly give us a call between 9 AM and 8 PM, Monday through Sunday.
+                    <br><br>Please note that walk-in guests are always welcome, and we keep a section of our café reserved for spontaneous visits to ensure everyone gets a chance to enjoy our cozy atmosphere.
+                </p>
+                <p class="cuisine-contact">
+                    (001) 123456789 – 234 567 8902
+                </p>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <section id="reservation-section" style="background-image: url('images/form background.jpg'); background-size: cover; background-position: center center; padding: 50px;">
+        <div class="reservation-container">
+            <h3 class="subheading">Reservation</h3>
+            <h2 class="main-heading">BOOK A TABLE</h2>
+            <form class="reservation-form" action="Reservations.php" method="POST">
+                <div class="form-group">
+                    <input type="text" name="UID" placeholder="Your User ID*" required>
+                    <input type="text" name="name" placeholder="Your Name*" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Phone*" required>
+                    <input type="number" name="persons" placeholder="Persons*" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" name="date" placeholder="DD/MM/YYYY*" required>
+                    <input type="time" name="time" placeholder="Time*" required>
+                </div>
+                <textarea name="message" placeholder="Message (optional)"></textarea>
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+    </section>
+    
+
+
+    
+    <section id="authentic-cuisine">
+        <div class="cuisine-container">
+            <div class="cuisine-content">
+                <h3 class="cuisine-subheading">It's time to enjoy</h3>
+                <h1 class="cuisine-heading">Crafting Exceptional Coffee & Culinary Experiences</h1>
+                <hr class="cuisine-divider">
+                <p class="cuisine-description">
+                    We offer convenient vehicle park reservations to ensure a hassle-free experience during your visit. To reserve your parking spot, simply give us a call between 9 AM and 8 PM, Monday through Sunday.
+                    <br><br>Rest assured, we also keep parking available for walk-in guests, so even without a reservation, you can still enjoy easy access to our café at any time.
+                </p>
+                <p class="cuisine-contact">
+                    (001) 123456789 – 234 567 8902
+                </p>
+            </div>
+            <div class="cuisine-image">
+                <img src="images/vehicle.jpeg" alt="Sri Lankan Cuisine">
+            </div>
+        </div>
+    </section>
+    
+
+
+    <section id="reservation-section" style="background-image: url('images/veheicleForm.png'); background-size: cover; background-position: center center; padding: 50px;">
+        <div class="reservation-container">
+            <h3 class="subheading">Reservation</h3>
+            <h2 class="main-heading">PARKING RESERVATION</h2>
+            <form class="reservation-form" method="POST" action="VehicleReservations.php">
+                <div class="form-group">
+                    <input type="text" name="UID" placeholder="Your User ID*" required>
+                    <input type="text" name="name" placeholder="Your Name*" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="persons" placeholder="Count of Vehicles*" required>
+                    <input type="tel" name="phone" placeholder="Vehicle Number/s*" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" name="date" placeholder="DD/MM/YYYY*" required>
+                    <input type="time" name="time" placeholder="Time*" required>
+                </div>
+                <textarea name="message" placeholder="Message (optional)"></textarea>
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+    </section>
+    
+
+
+
+
+    <footer>
+        <div class="footer-container">
+          <p style="color: #9A8873;">© 2024 Gallery Cafe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

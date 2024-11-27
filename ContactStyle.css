@@ -1,0 +1,498 @@
+/* ---------------------------------------------------------General Page Styles ------------------------------------------*/
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+
+/*--------------------------------------------------------- Main Navigation Styles------------------------------------------ */
+#main-nav {
+    background-color: #271a11;
+    padding: 22px 23px;
+    position: relative;
+    z-index: 10;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 26px;
+    font-weight: bold;
+    color: #F1DABF;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin: 0 15px;
+}
+
+.nav-menu li a {
+    color: #F1DABF;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+
+
+/* Style for the new icon in the navigation menu */
+#user-icon {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+#user-icon:hover .nav-icon {
+    transform: scale(1.2);
+}
+
+/* Adjust margin for icon to match other nav items */
+#user-icon {
+    margin-left: 15px;
+}
+
+/* ---------------------------------------------------------Hamburger Menu Icon------------------------------------------ */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Overlay for smoother experience */
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+/* ---------------------------------------------------------Responsive Design ------------------------------------------*/
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 250px;
+        background-color: #271a11;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 30px;
+        transition: left 0.3s ease;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 20px 0;
+    }
+
+    .nav-menu li a {
+        font-size: 18px;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    /* ---------------------------------------------------------Show Hamburger Icon------------------------------------------ */
+    .menu-toggle {
+        display: block;
+        z-index: 20;
+    }
+
+    /* ---------------------------------------------------------Menu toggle animation------------------------------------------ */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Show overlay */
+    #overlay.show {
+        display: block;
+        opacity: 1;
+    }
+}
+
+
+
+/*------------------------------------------------------intro section-------------------------------------------------------------*/
+.intro-section {
+    background: url('images/contact.jpg') no-repeat center center;
+    background-size: cover; 
+    color: #fff; 
+    padding: 190px 0; 
+    position: relative;
+    text-align: center;
+}
+
+.intro-section h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif; 
+}
+
+.breadcrumbs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.breadcrumbs li {
+    display: inline;
+    margin-right: 5px;
+}
+
+.breadcrumbs li a {
+    color: #fff; /* Link color */
+    text-decoration: none;
+}
+
+.breadcrumbs li a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs li.current-item {
+    color: #ddd; /* Color for the current item */
+}
+
+
+
+/*--------------------------- Premium Contact Section ---------------------------*/
+.contact-section {
+    background-color: #F1DABF; /* Light beige, luxurious tone */
+    padding: 100px 0;
+    text-align: center;
+}
+
+.contact-container {
+    background-color: white;
+    padding: 60px;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the container */
+    display: flex; 
+    gap: 40px; /* Space between form and contact info */
+}
+
+.contact-section h2 {
+    font-size: 48px;
+    color: #271a11; /* Dark brown for elegance */
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 18px;
+    color: #9A8873; /* Dark brown for elegance */
+    margin-bottom: 40px;
+    grid-column: span 2; /* Span across two columns in grid */
+}
+
+form {
+    flex: 1; /* Allow form to grow and fill space */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column; /* Change to column for labels */
+}
+
+.form-group label {
+    font-size: 16px;
+    color: #271a11; /* Dark brown for labels */
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 18px;
+    font-size: 18px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-color: #F9F6F2; /* Soft, premium background for input fields */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border: 2px solid #C6A961; /* Gold border on focus */
+    background-color: white; /* Sleek white background */
+    outline: none;
+}
+
+textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+button {
+    background-color: #C6A961; /* Gold for luxury */
+    color: #fff;
+    font-size: 20px;
+    padding: 18px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    font-family: 'Arial', sans-serif;
+}
+
+button:hover {
+    background-color: #A58A43; /* Darker gold on hover */
+    transform: translateY(-2px); /* Smooth hover effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column; /* Stack elements on small screens */
+    }
+
+    .form-group {
+        flex-direction: column; /* Keep labels above inputs */
+    }
+}
+.contact-info {
+    flex: 1; /* Allow contact info to grow and fill space */
+    margin-top: 0; /* Remove top margin */
+    text-align: left; /* Align text to the left */
+    padding-left: 40px; /* Add padding for spacing */
+    border-left: 2px solid #C6A961; 
+}
+
+.contact-info h3 {
+    font-size: 24px;
+    color: #271a11; /* Dark brown for elegance */
+    margin-bottom: 15px; /* Space below heading */
+    font-weight: 700; /* Bold for prominence */
+}
+
+.contact-info p {
+    font-size: 16px;
+    color: #271a11; /* Dark brown for elegance */
+    margin-bottom: 10px; /* Space between paragraphs */
+}
+
+.contact-info a {
+    color: #C6A961; /* Gold for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth transition for hover */
+}
+
+.contact-info a:hover {
+    color: #A58A43; 
+}
+
+.social-media {
+    margin-top: 20px; /* Space above social media section */
+}
+
+.social-media h4 {
+    font-size: 18px; /* Smaller heading for social media */
+    color: #271a11; /* Dark brown for elegance */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.social-media a {
+    margin-right: 15px; /* Space between social media icons */
+}
+
+.social-media img {
+    width: 30px; 
+    height: 30px; 
+    transition: transform 0.3s; }
+
+.social-media img:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+
+  /*-----------------------------------------our locations section-------------------------------------------------*/
+  .locations-section {
+    padding: 0px 0;
+    background-color: #9A8873; /* Light background for contrast */
+}
+
+.gallery-center-heading {
+    font-size: 36px;
+    color: #271a11;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #F1DABF;
+    text-align: center;
+}
+
+.gallery-locations {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; /* Space out the cards */
+}
+
+.location-card {
+    background-color: transparent; /* No background color */
+    padding: 20px;
+    border: none; /* Subtle border for definition */
+    margin: 10px; /* Consistent spacing around cards */
+}
+
+
+h5 {
+    font-size: 20px;
+    color: #F1DABF;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    color: #271a11;
+    margin: 5px 0;
+}
+
+.gallery-biz-hours p {
+    margin: 0;
+}
+
+.gallery-biz-hours strong {
+    color: #F1DABF;
+}
+
+.social-wrapper h3 {
+    font-size: 20px;
+    color: #271a11;
+    margin-bottom: 20px;
+    margin-left: 25px;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.social-media a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+.social-media img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.social-media a:hover img {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+@media (max-width: 768px) {
+    .locations-section {
+        padding: 40px 0;
+    }
+
+    .gallery-center-heading {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    h5 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+  /*-------------------------------------footer section-------------------------------------------------*/
+  footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #271a11;
+    
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+  }

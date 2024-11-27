@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery cafe user</title>
+    <link rel="stylesheet" href="User.css">
+</head>
+<body>
+    <header>
+        <!-- Main Navigation Menu -->
+        <nav id="main-nav">
+            <div class="navbar-container">
+                <a class="navbar-brand" href="#">Gallery Café</a>
+                <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Menu.html">Menu</a></li>
+                    <li><a href="Reservations.html">Reservations</a></li>
+                    <li><a href="Promotions.html">Event & Promotions</a></li>
+                    <li><a href="Shop.php">Shop</a></li>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                    <!-- Logout Button -->
+                    <li><a href="logout.php" id="logout-icon" aria-label="Logout">
+                        <img src="icons/logout.png" alt="Logout Icon" class="nav-icon">
+                    </a></li> <!-- Unique ID for logout -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    
+    <section id="user-auth-section">
+        <div class="auth-container">
+            <!-- Login Form -->
+            <div class="auth-form login-form" id="login-form" style="display: block;">
+                <h3 class="subheading">Login</h3>
+                <h2 class="main-heading">USER LOGIN</h2>
+                <form id="loginForm" action="login.php" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="User_Name" placeholder="Username*" required>
+                        <input type="password" name="Password" placeholder="Password*" required>
+                        <button type="submit">Login</button>
+                    </div>
+                    <p class="switch-form">Not registered yet? <span id="signup-link">Sign up here</span></p>
+                </form>
+            </div>
+    
+            <!-- Sign-Up Form -->
+            <div class="auth-form signup-form" id="signup-form" style="display: none;">
+                <h3 class="subheading">Sign Up</h3>
+                <h2 class="main-heading">CREATE AN ACCOUNT</h2>
+                <form id="signupForm" action="signup.php" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="User_Name" placeholder="Your Name*" required>
+                        <input type="email" name="Email" placeholder="Email Address*" required>
+                        <input type="password" name="Password" placeholder="Password*" minlength="8" required>
+                        <div id="password-message" class="password-message"></div> <!-- Message container -->
+                        <input type="tel" name="Contact_No" placeholder="Contact Number*" required>
+                        <select name="User_Type" required>
+                            <option value="" disabled selected>Select User Type*</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Operational Staff">Operational Staff</option>
+                            <option value="Customer">Customer</option>
+                        </select>
+                        <button type="submit">Sign Up</button>
+                    </div>
+                </form>
+                <p class="switch-form">Already have an account? <span id="login-link">Login here</span></p>
+            </div>
+        </div>
+    </section>
+     
+
+    <footer>
+        <div class="footer-container">
+          <p style="color: #9A8873;">© 2024 Gallery Cafe. All rights reserved.</p>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
+    <script src="User.js"></script>
+</body>
+</html>

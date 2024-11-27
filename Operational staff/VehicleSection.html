@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Section</title>
+    <link rel="stylesheet" href="VehicleSection.css">
+    <link rel="stylesheet" href="VehicleSection.php">
+
+</head>
+<body>
+    <header>
+        <!-- Main Navigation Menu -->
+        <nav id="main-nav">
+            <div class="navbar-container">
+                <a class="navbar-brand" href="#">Gallery Café</a>
+                <!-- Menu Toggle Button (Hamburger Icon) -->
+                <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <!-- Navigation Menu Links -->
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="dashboard.php">DASHBOAD</a></li>
+                    <li><a href="FoodSection.html">FOOD SECTION</a></li>
+                    <li><a href="ReservationSection.html">RESERVATION SECTION</a></li>
+                    <li><a href="VehicleSection.html">VEHICLE SECTION</a></li>
+                    <li><a href="logout.php" id="user-icon" aria-label="User Page">
+                        <img src="logout.png" alt="User Icon" class="nav-icon">
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Admin Parking Section -->
+    <section class="admin-parking-section">
+        <div class="container">    
+            <!-- Manage Parking Bookings Table -->
+            <h2>Manage Parking Bookings</h2>
+            <button id="view-bookings-btn" class="btn btn-secondary">View Bookings</button>
+
+            <table id="bookings-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>User ID</th>
+                        <th>Parking ID</th>
+                        <th>No. of Vehicles</th>
+                        <th>Vehicle Number</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="bookings-table-body">
+                </tbody>
+            </table>
+
+        </div>
+    </section>
+
+
+
+   
+    <script src="VehicleSection.js"></script>
+    <script src="VBooking.js"></script>
+    <script src="script.js"></script>
+
+
+
+
+    
+</body>
+</html>

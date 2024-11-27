@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Section</title>
+    <link rel="stylesheet" href="FoodSection.css">
+    <link rel="stylesheet" href="FoodSection.php">
+</head>
+<body>
+    <header>
+        <!-- Main Navigation Menu -->
+        <nav id="main-nav">
+            <div class="navbar-container">
+                <a class="navbar-brand" href="#">Gallery Café</a>
+                <!-- Menu Toggle Button (Hamburger Icon) -->
+                <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <!-- Navigation Menu Links -->
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="dashboard.php">DASHBOAD</a></li>
+                    <li><a href="FoodSection.html">FOOD SECTION</a></li>
+                    <li><a href="ReservationSection.html">RESERVATION SECTION</a></li>
+                    <li><a href="VehicleSection.html">VEHICLE SECTION</a></li>
+                    <li><a href="logout.php" id="user-icon" aria-label="User Page">
+                        <img src="logout.png" alt="User Icon" class="nav-icon">
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Admin Food Section -->
+    <section class="admin-food-section">
+        <div class="container">
+            <!-- Manage Foods Table -->
+            <h2>Manage Foods</h2>
+            <button id="add-food-btn" class="btn btn-primary">Add New Food</button>
+            <button id="view-table-btn" class="btn btn-secondary">View Table</button>
+
+            <table id="foods-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Food ID</th>
+                        <th>Food Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Cuisine Type</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic rows will be loaded here -->
+                </tbody>
+            </table>
+
+            <!-- Add/Edit Food Form (hidden by default) -->
+            <div id="food-form-modal" class="modal">
+                <form id="food-form" method="post" action="FoodSection.php">
+                    <input type="hidden" name="fid" id="fid">
+                    <label for="food-name">Food Name:</label>
+                    <input type="text" id="food-name" name="food-name" required>
+
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="price" required>
+
+                    <label for="category">Category:</label>
+                    <input type="text" id="category" name="category" required>
+
+                    <label for="cuisine-type">Cuisine Type:</label>
+                    <input type="text" id="cuisine-type" name="cuisine-type" required>
+
+                    <label for="food-image">Image URL:</label>
+                    <input type="text" id="food-image" name="food-image" required>
+
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-secondary" id="close-food-form">Cancel</button>
+                </form>
+            </div>
+
+            <!-- Manage Food Orders Table -->
+            <h2>Manage Food Orders</h2>
+            <button type="submit" id="view-orders-btn" name="view_orders" class="btn btn-secondary">View Orders</button>
+            <table id="orders-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer ID</th>
+                        <th>Food ID</th>
+                        <th>Quantity</th>
+                        <th>Order Date</th>
+                        <th>Order Time</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-table-body">
+                    <!-- Dynamic rows for orders will be loaded here -->
+                </tbody>
+            </table>
+
+
+            <!-- Add/Edit Order Form (hidden by default) -->
+            <div id="order-form-modal" class="modal">
+                <form id="order-form" method="post" action="FoodSection.php">
+                    <input type="hidden" name="oid" id="oid">
+                    
+                    <label for="order-status">Order Status:</label>
+                    <select id="order-status" name="order_status">
+                        <option value="Pending">Pending</option>
+                        <option value="Confirmed">Confirmed</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-success" >Save</button>
+                    <button type="button" class="btn btn-secondary" id="close-order-form">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="FoodSection.js"></script>
+    <script src="orders.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+/* ---------------------------------------------------------General Page Styles ------------------------------------------*/
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*--------------------------------------------------------- Main Navigation Styles------------------------------------------ */
+#main-nav {
+    background-color: #271a11;
+    padding: 22px 23px;
+    position: relative;
+    z-index: 10;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 26px;
+    font-weight: bold;
+    color: #F1DABF;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin: 0 15px;
+}
+
+.nav-menu li a {
+    color: #F1DABF;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Style for the new icon in the navigation menu */
+#user-icon {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+#user-icon:hover .nav-icon {
+    transform: scale(1.2);
+}
+
+/* Adjust margin for icon to match other nav items */
+#user-icon {
+    margin-left: 15px;
+}
+
+
+
+/* ---------------------------------------------------------Hamburger Menu Icon------------------------------------------ */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Overlay for smoother experience */
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+/* ---------------------------------------------------------Responsive Design ------------------------------------------*/
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 250px;
+        background-color: #271a11;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 30px;
+        transition: left 0.3s ease;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 20px 0;
+    }
+
+    .nav-menu li a {
+        font-size: 18px;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    /* ---------------------------------------------------------Show Hamburger Icon------------------------------------------ */
+    .menu-toggle {
+        display: block;
+        z-index: 20;
+    }
+
+    /* ---------------------------------------------------------Menu toggle animation------------------------------------------ */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Show overlay */
+    #overlay.show {
+        display: block;
+        opacity: 1;
+    }
+}
+
+
+
+
+/* -------------------------------------------------------Admiin reservation Section Styles---------------------------------------- */
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f4ec; /* Light background for better contrast */
+}
+
+/* Section Styles */
+.admin-reservation-section {
+    padding: 30px; /* Increased padding for a spacious feel */
+    background-color: white; /* Beige background */
+    color: #271a11; /* Dark brown text */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Softer shadow */
+    margin: 30px; /* Margin around the section */
+}
+
+/* Headings */
+.admin-reservation-section h2, 
+.admin-reservation-section h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 24px; /* Larger heading size */
+    color: #271a11; /* Consistent dark color for headings */
+}
+
+/* Button Styles */
+.btn {
+    background-color: #9A8873; /* Light brown background */
+    color: #FFFFFF; /* White text */
+    padding: 12px 20px; /* Increased padding for buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Inline-block for spacing */
+    font-size: 18px; /* Slightly larger text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft button shadow */
+}
+
+.btn:hover {
+    background-color: #271a11; /* Dark brown on hover */
+    transform: translateY(-3px); /* Lift effect */
+}
+
+/* Confirmation Button Styles */
+.confirm-btn {
+    background-color: #4CAF50; /* Green background */
+}
+
+.confirm-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px; /* Max width for the container */
+    margin: 0 auto; /* Centering */
+    padding: 20px; /* Inner padding */
+}
+
+/* Table Styles */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for table */
+}
+
+.data-table th, 
+.data-table td {
+    padding: 15px; /* Increased padding for cells */
+    text-align: center;
+    border: 1px solid #9A8873; /* Border color */
+    transition: background-color 0.2s; /* Transition for hover effect */
+}
+
+.data-table th {
+    background-color: #271a11; /* Dark brown for header */
+    color: #F1DABF; /* Beige text */
+    font-weight: bold; /* Bold text for headers */
+}
+
+/* Row Hover Effect */
+.data-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Light hover effect on rows */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5); /* Darker background */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Form Styles */
+.modal form {
+    background-color: #FFFFFF; /* White background for form */
+    padding: 30px; /* Increased padding for form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow for form */
+    max-width: 450px; /* Max width for the form */
+    margin: auto; /* Centering */
+}
+
+/* Input and Select Styles */
+.modal input, 
+.modal select {
+    width: 100%; /* Full width */
+    padding: 12px; /* Increased padding for inputs */
+    margin: 10px 0; /* Margin between inputs */
+    border: 1px solid #9A8873; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    transition: border-color 0.3s; /* Transition for focus effect */
+}
+
+.modal input:focus, 
+.modal select:focus {
+    border-color: #271a11; /* Dark brown on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .admin-reservation-section {
+        padding: 20px; /* Less padding on smaller screens */
+    }
+    
+    .btn {
+        width: 100%; /* Full width buttons on small screens */
+    }
+    
+    .data-table th, 
+    .data-table td {
+        font-size: 14px; /* Smaller text for smaller screens */
+        padding: 10px; /* Less padding for smaller screens */
+    }
+}
+
+
+/*----------------------------------------------------------model----------------------------------------------------------*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

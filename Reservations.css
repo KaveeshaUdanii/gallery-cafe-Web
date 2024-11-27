@@ -1,0 +1,418 @@
+/* ---------------------------------------------------------General Page Styles ------------------------------------------*/
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*--------------------------------------------------------- Main Navigation Styles------------------------------------------ */
+#main-nav {
+    background-color: #271a11;
+    padding: 22px 23px;
+    position: relative;
+    z-index: 10;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 26px;
+    font-weight: bold;
+    color: #F1DABF;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin: 0 15px;
+}
+
+.nav-menu li a {
+    color: #F1DABF;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+  
+/* Style for the new icon in the navigation menu */
+#user-icon {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+#user-icon:hover .nav-icon {
+    transform: scale(1.2);
+}
+
+/* Adjust margin for icon to match other nav items */
+#user-icon {
+    margin-left: 15px;
+}
+
+/* ---------------------------------------------------------Hamburger Menu Icon------------------------------------------ */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Overlay for smoother experience */
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+/* ---------------------------------------------------------Responsive Design ------------------------------------------*/
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 250px;
+        background-color: #271a11;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 30px;
+        transition: left 0.3s ease;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 20px 0;
+    }
+
+    .nav-menu li a {
+        font-size: 18px;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+
+
+    /* ---------------------------------------------------------Show Hamburger Icon------------------------------------------ */
+    .menu-toggle {
+        display: block;
+        z-index: 20;
+    }
+
+    /* ---------------------------------------------------------Menu toggle animation------------------------------------------ */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Show overlay */
+    #overlay.show {
+        display: block;
+        opacity: 1;
+    }
+}
+
+
+/*----------------------------------------------------------intro-------------------------------------------------------------*/
+.intro-section {
+    background: url('images/dining.jpg') no-repeat center center;
+    background-size: cover; /* Adjust to fit the image properly */
+    color: #fff; /* White text for contrast */
+    padding: 250px 0; /* Adjust padding as needed */
+    position: relative;
+    text-align: center;
+}
+
+.intro-section h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif; /* Clean and professional font */
+}
+
+.breadcrumbs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.breadcrumbs li {
+    display: inline;
+    margin-right: 5px;
+}
+
+.breadcrumbs li a {
+    color: #fff; /* Link color */
+    text-decoration: none;
+}
+
+.breadcrumbs li a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs li.current-item {
+    color: #ddd; /* Color for the current item */
+}
+
+
+
+/*-------------------------------------------- Authentic Cuisine Section --------------------------------------------------*/
+#authentic-cuisine {
+    display: flex;
+    align-items: center;
+    background-color: #9A8873; /* Dark background for contrast */
+    color: #fff; /* White text for high readability */
+    padding: 80px 0;
+}
+
+.cuisine-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.cuisine-image img {
+    width: 550px;
+    height: auto;
+    border-radius: 0px;
+}
+
+.cuisine-content {
+    padding-left: 10px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cuisine-subheading {
+    font-size: 28px;
+   /* font-family: 'Playfair Display', serif; /* Premium serif font */
+    color: #F1DABF; /* Gold color for elegance */
+    margin-bottom: 15px;
+}
+
+.cuisine-heading {
+    font-size: 48px;
+    font-weight: 700;
+    /*font-family: 'Playfair Display', serif;*/
+    margin-bottom: 10px;
+    color: #271a11; /* Bright white for contrast */
+}
+
+.cuisine-divider {
+    width: 80px;
+    height: 4px;
+    background-color: #F1DABF; /* Gold underline */
+    margin-bottom: 20px;
+}
+
+.cuisine-description {
+    font-size: 18px;
+    line-height: 1.7;
+    font-family: 'Arial', sans-serif;
+    color: #F1DABF; /* Lighter grey for smooth   #d1d1d1; */
+    margin-bottom: 20px;
+}
+
+.cuisine-contact {
+    font-size: 20px;
+    font-weight: bold;
+    color: #F1DABF;
+}
+
+@media (max-width: 768px) {
+    .cuisine-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .cuisine-image img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .cuisine-content {
+        padding-left: 0;
+    }
+}
+
+
+
+
+
+/*---------------------------------------------------------- Premium Reservation Section -------------------------------------------*/
+#reservation-section {
+    background-color: #271a11; /* Light beige, luxurious tone */
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reservation-container {
+    background-color: rgb(255, 255, 255, 0.7);
+    padding: 60px;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+}
+
+.subheading {
+    font-size: 26px;
+    color: #9A8873; /* Elegant gold color */
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif; /* Premium serif font */
+    font-style: italic;
+}
+
+.main-heading {
+    font-size: 48px;
+    color: #271a11; /* Dark brown for elegance */
+    font-weight: 700;
+    margin-bottom: 40px;
+    /*font-family: 'Playfair Display', serif;*/
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.form-group input, .reservation-form textarea {
+    width: 100%;
+    padding: 18px;
+    font-size: 18px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-color: #F9F6F2; /* Soft, premium background for input fields */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:focus, .reservation-form textarea:focus {
+    border: 2px solid #C6A961; /* Gold border on focus */
+    background-color: white; /* Sleek white background */
+    outline: none;
+}
+
+textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+button {
+    background-color: #9A8873; /* Gold for luxury */
+    color: #fff;
+    font-size: 20px;
+    padding: 18px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    font-family: 'Arial', sans-serif;
+}
+
+button:hover {
+    background-color: #271a11; 
+    transform: translateY(-2px); 
+}
+
+/* Subtle input shadow on hover */
+.form-group input:hover, .reservation-form textarea:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-group {
+        flex-direction: column;
+    }
+}
+
+
+
+
+  /*-------------------------------------footer section-------------------------------------------------*/
+  footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #271a11;
+    
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+  }

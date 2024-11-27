@@ -1,0 +1,625 @@
+/* -----------------------------------------------------------General Styles -----------------------------------------------------------*/
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 50px;
+}
+/* -------------------------------------------------------------Top Bar Styles----------------------------------------------------------- */
+.top-bar {
+    background-color: #9A8873;
+    padding: 0px 20px;
+    padding-right: 80px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.search-container input {
+    width: 250px; /* Increased width */
+    padding: 8px;
+    border: 1px solid #F1DABF;
+    border-radius: 4px;
+    outline: none;
+    margin-right: 10px;
+}
+
+.search-container button {
+    padding: 8px 12px;
+    background-color: #271a11;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.search-container button:hover {
+    background-color: #5C3A27; /* Darker shade on hover */
+}
+
+.icons-container {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+#cart-icon,
+#user-icon {
+    margin-left: 15px;
+    align-items: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+#cart-icon:hover .nav-icon,
+#user-icon:hover .nav-icon {
+    transform: scale(1.2);
+}
+
+/*------------------------------------------------------ Main Navigation Styles------------------------------------------ */
+#main-nav {
+    background-color: #271a11;
+    padding: 20px 23px;
+    display: flex;
+    position: relative;
+    justify-content: center; /* Center the items horizontally */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    margin: 0 15px;
+}
+
+.nav-menu li a {
+    color: #F1DABF;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+.navbar-brand {
+    font-size: 26px;
+    font-weight: bold;
+    color: #F1DABF;
+    text-decoration: none;
+    margin-right: 40px; /* Ensure spacing between brand and nav items */
+}
+
+/* Style for the user icon in the navigation menu */
+#user-icon {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+#user-icon:hover .nav-icon {
+    transform: scale(1.2);
+}
+
+/* Adjust margin for icon to match other nav items */
+#user-icon {
+    margin-left: 15px;
+}
+
+
+/* Style for the cart icon in the navigation menu */
+#cart-icon {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 20%;
+    transition: transform 0.3s ease;
+}
+
+#cart-icon:hover .nav-icon {
+    transform: scale(1.2);
+}
+
+/* Adjust margin for icon to match other nav items */
+#cart-icon {
+    margin-left: 15px;
+}
+
+
+
+
+
+/* ---------------------------------------------------------Hamburger Menu Icon------------------------------------------ */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Overlay for smoother experience */
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+/* -----------------------------------------Responsive Styles----------------------------------------------------- */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 250px;
+        background-color: #271a11;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 30px;
+        transition: left 0.3s ease;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 20px 0;
+    }
+
+    .nav-menu li a {
+        font-size: 18px;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    /* ---------------------------------------------------------Show Hamburger Icon------------------------------------------ */
+    .menu-toggle {
+        display: block;
+        z-index: 20;
+    }
+
+    /* ---------------------------------------------------------Menu toggle animation------------------------------------------ */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Show overlay */
+    #overlay.show {
+        display: block;
+        opacity: 1;
+    }
+
+    /* Adjust navbar and top bar for mobile view */
+    .top-bar,
+    #main-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-container {
+        margin-top: 10px;
+        width: 100%; /* Ensure search bar spans across the screen */
+    }
+
+    .search-container input {
+        width: 100%; /* Make search input responsive */
+    }
+
+    .icons-container {
+        margin-top: 10px;
+    }
+}
+
+
+
+
+
+/*--------------------------------------------------intro section-------------------------------------------------------------*/
+.intro-section {
+    background: url('images/menu\ background.png') no-repeat center center;
+    background-size: cover; /* Adjust to fit the image properly */
+    color: #fff; /* White text for contrast */
+    padding: 100px 0; /* Adjust padding as needed */
+    position: relative;
+    text-align: center;
+}
+
+.intro-section h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif; /* Clean and professional font */
+}
+
+.breadcrumbs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.breadcrumbs li {
+    display: inline;
+    margin-right: 5px;
+}
+
+.breadcrumbs li a {
+    color: #fff; /* Link color */
+    text-decoration: none;
+}
+
+.breadcrumbs li a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs li.current-item {
+    color: #ddd; /* Color for the current item */
+}
+
+
+.menu-container {
+  perspective: 800px;
+  position: relative;
+  width: 300px; /* Adjust width as needed */
+  height: 400px; /* Adjust height as needed */
+}
+
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+}
+
+.page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-1 {
+  z-index: 2;
+}
+
+.page-2 {
+  z-index: 1;
+  transform: rotateY(-180deg);
+}
+
+.page.active {
+  transform: rotateY(0deg);
+}
+
+
+
+/*-------------------------------------------------------Menu-----------------------------------------------------*/
+#menu-carousel {
+    text-align: center;
+    padding: 50px;
+    background-color: #F1DABF; /* Beige background */
+}
+
+#menu-carousel h2 {
+    font-size: 36px;
+    color: #271a11; /* Dark brown */
+    margin-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-align: center;
+}
+
+#menu-carousel p {
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #9A8873; /* Light brown */
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.menu-item {
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 0px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #menu-carousel h2 {
+        font-size: 30px;
+    }
+
+    #menu-carousel p {
+        font-size: 16px;
+    }
+}
+
+
+/*-----------------------------------------------------food section------------------------------------------------*/
+
+
+/* Typography Improvements */
+h2 {
+    font-size: 2.5em;
+    color: #271a11; /* Dark brown */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.cuisine-buttons {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cuisine-btn {
+    padding: 20px 50px; /* Adjusted for better fit */
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    background-color: #9A8873; /* Light brown */
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.4s, transform 0.3s;
+}
+
+.cuisine-btn:hover {
+    background-color: #F1DABF; /* Beige */
+    transform: translateY(-3px);
+}
+
+/* Menu Content Styles */
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.sidebar {
+    width: 15%;
+    background-color: #fff; /* Beige */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.sidebar:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Slight hover effect for premium feel */
+}
+
+.side-btn {
+    width: 80%;
+    display: block;
+    padding: 15px;
+    margin: 20px auto; /* Centered buttons */
+    border: none;
+    border-radius: 30px;
+    background-color: #271a11; /* Dark brown */
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1em;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.side-btn:hover {
+    background-color: #9A8873; /* Light brown */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.food-items {
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.card {
+    width: calc(25% - 20px); /* Four cards in a row */
+    margin: 10px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-img {
+    width: 100%;
+    height: 250px;
+    border-bottom: 2px solid #F1DABF;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #271a11; /* Dark brown */
+}
+
+.card-text {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.card-btn {
+    padding: 12px 20px;
+    background-color: #271a11; /* Dark brown */
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.4s, transform 0.3s;
+}
+
+.card-btn:hover {
+    background-color: #9A8873; /* Light brown */
+    transform: translateY(-3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .cuisine-btn {
+        padding: 15px 40px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-content {
+        flex-direction: column;
+        align-items: center; /* Centered on smaller screens */
+    }
+    
+    .sidebar {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .food-items {
+        width: 100%;
+        justify-content: center; /* Cards centered on smaller screens */
+    }
+
+    .card {
+        width: 100%; /* Full width on mobile */
+    }
+
+    .side-btn {
+        width: 100%; /* Full width buttons on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 2em; /* Reduced font size for smaller screens */
+    }
+
+    .cuisine-btn {
+        padding: 12px 30px;
+        font-size: 0.9em;
+    }
+
+    .sidebar {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 1.2em;
+    }
+
+    .card-text {
+        font-size: 0.9em;
+    }
+}
+
+
+
+/* Cart Items */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}

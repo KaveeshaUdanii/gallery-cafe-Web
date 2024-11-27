@@ -1,0 +1,659 @@
+/* ---------------------------------------------------------General Page Styles ------------------------------------------*/
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*--------------------------------------------------------- Main Navigation Styles------------------------------------------ */
+#main-nav {
+    background-color: #271a11;
+    padding: 22px 23px;
+    position: relative;
+    z-index: 10;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 26px;
+    font-weight: bold;
+    color: #F1DABF;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin: 0 15px;
+}
+
+.nav-menu li a {
+    color: #F1DABF;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Style for the new icon in the navigation menu */
+#user-icon {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+#user-icon:hover .nav-icon {
+    transform: scale(1.2);
+}
+
+/* Adjust margin for icon to match other nav items */
+#user-icon {
+    margin-left: 15px;
+}
+
+
+
+/* ---------------------------------------------------------Hamburger Menu Icon------------------------------------------ */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Overlay for smoother experience */
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+/* ---------------------------------------------------------Responsive Design ------------------------------------------*/
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 250px;
+        background-color: #271a11;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 30px;
+        transition: left 0.3s ease;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 20px 0;
+    }
+
+    .nav-menu li a {
+        font-size: 18px;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    /* ---------------------------------------------------------Show Hamburger Icon------------------------------------------ */
+    .menu-toggle {
+        display: block;
+        z-index: 20;
+    }
+
+    /* ---------------------------------------------------------Menu toggle animation------------------------------------------ */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Show overlay */
+    #overlay.show {
+        display: block;
+        opacity: 1;
+    }
+}
+
+/* ---------------------------------------------------------Carousel styles---------------------------------------------- */
+.container-carousel {
+    margin: -4px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    max-height: 610px;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative; /* To contain the text layers within the slide */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Layered text container inside the slide */
+.n2-ss-layers-container {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /* Center-align text for a more balanced look */
+    z-index: 10;
+}
+
+/* Individual text layer */
+.n2-ss-layer {
+    display: block;
+    color: white;
+    font-family: 'Arial', sans-serif; /* Change to a professional font */
+    font-size: 60px; /* Adjust font size for balance */
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* More subtle shadow for depth */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    margin: 10px 0; /* Space between text layers */
+}
+
+.n2-ss-layer .n2-ss-item-content {
+    font-weight: bold;
+}
+
+/* Hide text by default */
+.carousel-item .n2-ss-layer {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Show text when slide is active */
+.carousel-item.active .n2-ss-layer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Carousel Controls */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent for a modern look */
+    color: black;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.carousel-control:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.carousel-indicators span {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-indicators .active {
+    background-color: gray;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .n2-ss-layer {
+        font-size: 24px; /* Smaller size for mobile */
+    }
+}
+
+/* Caption Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/*---------------------------------------------------General styles -------------------------------------------*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* ----------------------------------------------Café Intro Section------------------------------------------ */
+.cafe-intro {
+    background-color: #271a11 ; /* Darker chocolate background */
+    color: #F1DABF;
+    padding: 50px 0;
+}
+
+.text-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text-content {
+    flex: 1;
+    padding-right: 50px;
+}
+
+.text-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.text-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.text-content .hashtag {
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.image-content {
+    flex: 1;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Ensure mobile responsiveness */
+@media (max-width: 768px) {
+    .text-image-container {
+        flex-direction: column;
+    }
+
+    .text-content {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* ----------------------------------------Customer Favourite Section------------------------------------------ */
+.customer-favourite {
+    background-color: #9A8873; /* Background color */
+    padding: 50px 0;
+    color: #000;
+}
+
+.customer-favourite h1 {
+    text-align: center;
+    margin-top: -40px;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #271a11;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #9A8873;
+    border-radius: 3px;
+    box-shadow: 0px 4px 8px rgb(39, 26, 17, 0.1);
+    width: 280px;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-wrapper {
+    position: relative;
+}
+
+.card-img {
+    border-radius: 3px;
+    width: 100%;
+    height: auto;
+    transition: filter 0.3s ease;
+}
+
+.card-img-wrapper:hover .card-img {
+    filter: brightness(70%);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: opacity 0.3s ease;
+}
+
+.card-img-wrapper:hover .overlay {
+    opacity: 1;
+}
+
+.card-text {
+    padding: 15px;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+.card-title{
+    text-align: center;
+    color: white;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #F1DABF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    
+}
+
+.btn:hover {
+    background-color: #9A8873;
+}
+
+
+
+
+/*----------------------------------------service section-----------------------------------------*/
+#our-services {
+    position: relative;
+    padding: 100px 20px; /* Increased padding to make it taller */
+    text-align: center;
+    color: white;
+    background-size: cover;
+    background-position: center center;
+    min-height: 600px; /* Minimum height to ensure it's taller */
+}
+
+.services-container {
+    background-color: rgb(39, 26, 17, 0.4)    ; /* Transparent black overlay */
+    padding: 50px;
+    border-radius: 15px;
+    max-width: 1200px;
+    min-height: 500px;
+    margin: 0 auto;
+}
+
+#our-services h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: white; /* Accent color */
+    margin-top: 50px;
+}
+
+.services-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 55px; /* Gap between service items */
+    margin-top: 100px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: rgb(255, 255, 255, 0.85);
+    max-width: 350px;
+}
+
+.service-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.service-info h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.service-info p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #F1DABF;
+}
+
+  /*-----------------------------------------our locations section-------------------------------------------------*/
+  .locations-section {
+    padding: 0px 0;
+    background-color: #9A8873; /* Light background for contrast */
+}
+
+.gallery-center-heading {
+    font-size: 36px;
+    color: #271a11;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #F1DABF;
+    text-align: center;
+}
+
+.gallery-locations {
+    display: flex;
+    flex-wrap: wrap; /* Change to wrap for better responsiveness */
+    justify-content: space-between; /* Space out the cards */
+}
+
+.location-card {
+    background-color: transparent; /* No background color */
+    padding: 20px;
+    border: none; /* Subtle border for definition */
+    margin: 10px; /* Consistent spacing around cards */
+}
+
+
+h5 {
+    font-size: 20px;
+    color: #F1DABF;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    color: #271a11;
+    margin: 5px 0;
+}
+
+.gallery-biz-hours p {
+    margin: 0;
+}
+
+.gallery-biz-hours strong {
+    color: #F1DABF;
+}
+
+.social-wrapper h3 {
+    font-size: 20px;
+    color: #271a11;
+    margin-bottom: 20px;
+    margin-left: 25px;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.social-media a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+.social-media img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.social-media a:hover img {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+@media (max-width: 768px) {
+    .locations-section {
+        padding: 40px 0;
+    }
+
+    .gallery-center-heading {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    h5 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+  /*-------------------------------------footer section-------------------------------------------------*/
+  footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #271a11;
+    
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+  }
